@@ -1,7 +1,5 @@
 const { Game, Rating } = require('../models')
 
-const getRatings = () => {}
-
 const createRatings = async (req, res) => {
   try {
     const newRating = await Rating.create(req.body)
@@ -14,6 +12,5 @@ const createRatings = async (req, res) => {
   }
 }
 module.exports = {
-  getRatings,
   createRatings
 }
