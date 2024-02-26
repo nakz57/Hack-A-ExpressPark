@@ -27,8 +27,18 @@ const deleteGame = async (req, res) => {
   }
 }
 
+const updateGame = async (req, res) => {
+  try {
+    const game = await Game.findByIdAndUpdate(req.params.id, req.body)
+    res.send(game)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   getGamess,
   createGame,
-  deleteGame
+  deleteGame,
+  updateGame
 }
