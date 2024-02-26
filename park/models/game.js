@@ -6,7 +6,7 @@ const gameSchema = new Schema({
   description: String,
   image: String,
   price: Number,
-  ratings: { type: Schema.Types.ObjectId, ref: 'rating' }
+  ratings: [{ type: Schema.Types.ObjectId, ref: 'Rating' }]
 })
 
 module.exports = gameSchema

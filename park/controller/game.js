@@ -1,8 +1,8 @@
 const { Game } = require('../models')
 
-const getGamess = async (req, res) => {
+const getGames = async (req, res) => {
   try {
-    const games = await Game.find({})
+    const games = await Game.find({}).populate('ratings')
     res.send(games)
   } catch (error) {
     console.log(error)
@@ -37,7 +37,7 @@ const updateGame = async (req, res) => {
 }
 
 module.exports = {
-  getGamess,
+  getGames,
   createGame,
   deleteGame,
   updateGame
