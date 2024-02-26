@@ -21,10 +21,14 @@ const createGame = async (req, res) => {
 const deleteGame = async (req, res) => {
   try {
     await Game.deleteOne({ _id: req.params.id })
-  } catch (erroe) {}
+    res.send({ msg: 'Post Deleted', status: 'Ok' })
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 module.exports = {
   getGamess,
-  createGame
+  createGame,
+  deleteGame
 }

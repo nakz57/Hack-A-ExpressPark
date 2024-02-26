@@ -1,11 +1,10 @@
 const express = require('express')
 const router = express.Router()
-// const router = require('express').Router()
 
 const gameCtrl = require('../controller/game')
 
 router.get('/', gameCtrl.getGamess)
 router.post('/add', gameCtrl.createGame)
-// router.delete('/:id', gameCtrl.deleteGame)
+router.delete('/:id', gameCtrl.deleteGame)
 
 module.exports = router
