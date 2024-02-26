@@ -9,9 +9,19 @@ const getGamess = async (req, res) => {
   }
 }
 
-const createGame = async () => {
+const createGame = async (req, res) => {
   try {
-  } catch (error) {}
+    const game = await Game.create(req.body)
+    res.send(game)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const deleteGame = async (req, res) => {
+  try {
+    await Game.deleteOne({ _id: req.params.id })
+  } catch (erroe) {}
 }
 
 module.exports = {

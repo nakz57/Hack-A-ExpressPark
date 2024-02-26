@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const ratingSchema = new Schema({
   rating: Number,
-  content: Srting
+  content: String
 })
 
 module.exports = ratingSchema
