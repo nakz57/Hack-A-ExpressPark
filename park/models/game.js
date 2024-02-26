@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const gameCard = new Schema({
+const gameSchema = new Schema({
   name: String,
   description: String,
   image: String,
   price: Number,
-  ratings: { type: Schema.Types.ObjectId, ref: 'rating' }
+  ratings: [{ type: Schema.Types.ObjectId, ref: 'Rating' }]
 })
 
-module.exports = mongoose.model('GameCard', gameCard)
+module.exports = gameSchema
