@@ -7,8 +7,17 @@ var logger = require('morgan')
 var indexRouter = require('./routes/index')
 const gameRouter = require('./routes/game')
 const ratingRouter = require('./routes/rating')
+const AuthRouter = require('./routes/AuthRouter')
+
 const db = require('./db')
 var app = express()
+const cors = require('cors')
+
+app.use(
+  cors({
+    origin: 'http://localhost:5173' // Your frontend application origin
+  })
+)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -23,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexRouter)
 app.use('/game', gameRouter)
 app.use('/', ratingRouter)
-
+app.use('/auth', AuthRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
