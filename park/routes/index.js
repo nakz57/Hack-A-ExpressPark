@@ -1,9 +1,8 @@
 var express = require('express')
 var router = express.Router()
+const gameCtrl = require('../controller/game')
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.redirect('/game')
-})
+router.get('/', gameCtrl.getGames)
 
 module.exports = router

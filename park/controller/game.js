@@ -8,7 +8,14 @@ const getGames = async (req, res) => {
     console.log(error)
   }
 }
-
+const getGame = async (req, res) => {
+  try {
+    const game = await Game.findById(req.params.id).populate('ratings')
+    res.send(game)
+  } catch (error) {
+    console.log(error)
+  }
+}
 const createGame = async (req, res) => {
   try {
     const game = await Game.create(req.body)
@@ -40,5 +47,6 @@ module.exports = {
   getGames,
   createGame,
   deleteGame,
-  updateGame
+  updateGame,
+  getGame
 }
